@@ -11,6 +11,7 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+	"strings"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -101,7 +102,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	for _, meme := range UffMemes {
-		if m.Content == meme.Command {
+		if strings.Title(m.Content) == strings.Title(meme.Command) {
 			s.ChannelMessageSend(m.ChannelID, getMemeURL(meme.APIUrl))
 		}
 	}
