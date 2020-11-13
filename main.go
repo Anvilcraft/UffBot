@@ -23,6 +23,9 @@ type Memes struct {
 type meme struct {
 	URL string `json:"link"`
 }
+type response struct {
+	Meme meme `json:"meme"`
+}
 
 // Variables used for command line parameters
 var (
@@ -90,6 +93,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		{Command: "uffhs", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=331"},
 		{Command: "uffde", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=144"},
 		{Command: "uffhre", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=312"},
+		{Command: "uffpy", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=477"},
 		{Command: "itbyhf", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=314"},
 		{Command: "tilera", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=316"},
 		{Command: "lordmzte", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=315"},
@@ -134,11 +138,11 @@ func getMemeURL(url string) string {
 		log.Fatal(readErr)
 	}
 
-	memeob := meme{}
+	memeob := response{}
 	jsonErr := json.Unmarshal(body, &memeob)
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
 	}
 
-	return memeob.URL
+	return memeob.Meme.URL
 }
