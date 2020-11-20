@@ -115,7 +115,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 
 	for _, meme := range UffMemes {
-		if strings.Title(m.Content) == strings.Title("!help") {
+		if strings.Title(m.Content) == strings.Title("_help") {
 			s.ChannelMessageSend(m.ChannelID, Help)
 			break
 		}
