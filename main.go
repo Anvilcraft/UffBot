@@ -105,7 +105,20 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		{Command: "bastard", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=375"},
 	}
 
+	Help := "" +
+		"**__Commands / UFFBot__**" +
+		"```"
 	for _, meme := range UffMemes {
+		Help += meme.Command + "\n"
+	}
+	Help += "```"
+
+
+	for _, meme := range UffMemes {
+		if strings.Title(m.Content) == strings.Title("!help") {
+			s.ChannelMessageSend(m.ChannelID, Help)
+			break
+		}
 		if strings.Title(m.Content) == strings.Title(meme.Command) {
 			s.ChannelMessageSend(m.ChannelID, getMemeURL(meme.APIUrl))
 		}
