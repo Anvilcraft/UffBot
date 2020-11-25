@@ -83,7 +83,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	UffMemes := []Memes{
 		{Command: "uff", APIUrl: "https://jensmemes.tilera.xyz/api/random?category=uff"},
 		{Command: "uffat", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=257"},
-		{Command: "uffgo", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=568"},
+		{Command: "uffgo", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=568"},
 		{Command: "hey", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=243"},
 		{Command: "uffch", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=283"},
 		{Command: "drogen", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=80"},
