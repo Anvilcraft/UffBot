@@ -108,8 +108,8 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		{Command: "party", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=619"},
 		{Command: "uffrs", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=616"},
 		{Command: "uffjs", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=615"},
-		{Command: "uffkt", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=626"},
-		{Command: "uffj", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=615"},
+		{Command: "uffkt", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=627"},
+		{Command: "uffj", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=626"},
 	}
 
 	Help := "" +
