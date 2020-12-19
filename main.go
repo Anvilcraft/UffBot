@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
-	"strings"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -105,6 +105,9 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		{Command: "fresse", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=375"},
 		{Command: "bastard", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=375"},
 		{Command: "uffsr", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=585"},
+		{Command: "party", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=619"},
+		{Command: "uffrs", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=616"},
+		{Command: "uffjs", APIUrl: "https://jensmemes.tilera.xyz/api/meme?id=615"},
 	}
 
 	Help := "" +
@@ -114,7 +117,6 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		Help += meme.Command + "\n"
 	}
 	Help += "```"
-
 
 	for _, meme := range UffMemes {
 		if strings.Title(m.Content) == strings.Title("_help") {
