@@ -115,6 +115,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		{Command: "uffmz", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=646"},
 		{Command: "uffal", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=654"},
 		{Command: "alec", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=650"},
+		{Command: "uffwe", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=779"},
 	}
 
 	Help := "" +
