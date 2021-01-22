@@ -1,0 +1,145 @@
+{
+  "helpEnabled": true,
+  "memes": [
+    {
+      "Command": "uff",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/random?category=uff"
+    },
+    {
+      "Command": "uffat",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=257"
+    },
+    {
+      "Command": "uffgo",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=568"
+    },
+    {
+      "Command": "hey",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=243"
+    },
+    {
+      "Command": "uffch",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=283"
+    },
+    {
+      "Command": "drogen",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=8admini0"
+    },
+    {
+      "Command": "kappa",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=182"
+    },
+    {
+      "Command": "hendrik",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=248"
+    },
+    {
+      "Command": "ufflie",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=284"
+    },
+    {
+      "Command": "uffns",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=287"
+    },
+    {
+      "Command": "uffhs",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=331"
+    },
+    {
+      "Command": "uffde",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=144"
+    },
+    {
+      "Command": "uffhre",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=312"
+    },
+    {
+      "Command": "uffpy",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=477"
+    },
+    {
+      "Command": "itbyhf",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=314"
+    },
+    {
+      "Command": "tilera",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=316"
+    },
+    {
+      "Command": "lordmzte",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=315"
+    },
+    {
+      "Command": "realtox",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=168"
+    },
+    {
+      "Command": "jonasled",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=164"
+    },
+    {
+      "Command": "sklave",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=304"
+    },
+    {
+      "Command": "jens",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=343"
+    },
+    {
+      "Command": "fresse",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=375"
+    },
+    {
+      "Command": "bastard",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=375"
+    },
+    {
+      "Command": "uffsr",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=585"
+    },
+    {
+      "Command": "party",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=619"
+    },
+    {
+      "Command": "uffrs",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=616"
+    },
+    {
+      "Command": "uffjs",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=615"
+    },
+    {
+      "Command": "uffkt",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=627"
+    },
+    {
+      "Command": "uffj",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=626"
+    },
+    {
+      "Command": "ufftl",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=644"
+    },
+    {
+      "Command": "uffhf",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=645"
+    },
+    {
+      "Command": "uffmz",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=646"
+    },
+    {
+      "Command": "uffal",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=654"
+    },
+    {
+      "Command": "alec",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=650"
+    },
+    {
+      "Command": "uffwe",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=779"
+    }
+  ]
+}
