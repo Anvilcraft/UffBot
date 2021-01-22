@@ -2,23 +2,26 @@ package main
 
 import (
 	"encoding/json"
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
-	"os/signal"
-	"strings"
-	"syscall"
 	"time"
 
+	"flag"
+
 	"github.com/bwmarrin/discordgo"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
-type Memes struct {
-	Command string
-	APIUrl  string
+type ConfigFile struct {
+	HelpEnabled bool `json:"helpEnabled"`
+	Memes       []struct {
+		Command string `json:"Command"`
+		APIURL  string `json:"api_url"`
+	} `json:"memes"`
 }
 type meme struct {
 	URL string `json:"link"`
@@ -39,6 +42,8 @@ func init() {
 }
 
 func main() {
+
+	//print(getMemeURL(ReadConfig("./config.json","uff")))
 
 	// Create a new Discord session using the provided bot token.
 	dg, err := discordgo.New("" + Token)
@@ -80,63 +85,77 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	UffMemes := []Memes{
-		{Command: "uff", APIUrl: "https://data.tilera.xyz/api/jensmemes/random?category=uff"},
-		{Command: "uffat", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=257"},
-		{Command: "uffgo", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=568"},
-		{Command: "hey", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=243"},
-		{Command: "uffch", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=283"},
-		{Command: "drogen", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=80"},
-		{Command: "kappa", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=182"},
-		{Command: "hendrik", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=248"},
-		{Command: "ufflie", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=284"},
-		{Command: "uffns", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=287"},
-		{Command: "uffhs", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=331"},
-		{Command: "uffde", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=144"},
-		{Command: "uffhre", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=312"},
-		{Command: "uffpy", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=477"},
-		{Command: "itbyhf", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=314"},
-		{Command: "tilera", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=316"},
-		{Command: "lordmzte", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=315"},
-		{Command: "realtox", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=168"},
-		{Command: "jonasled", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=164"},
-		{Command: "sklave", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=304"},
-		{Command: "jens", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=343"},
-		{Command: "fresse", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=375"},
-		{Command: "bastard", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=375"},
-		{Command: "uffsr", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=585"},
-		{Command: "party", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=619"},
-		{Command: "uffrs", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=616"},
-		{Command: "uffjs", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=615"},
-		{Command: "uffkt", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=627"},
-		{Command: "uffj", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=626"},
-		{Command: "ufftl", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=644"},
-		{Command: "uffhf", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=645"},
-		{Command: "uffmz", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=646"},
-		{Command: "uffal", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=654"},
-		{Command: "alec", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=650"},
-		{Command: "uffwe", APIUrl: "https://data.tilera.xyz/api/jensmemes/meme?id=779"},
+	data, err := ioutil.ReadFile("./config.json")
+	if err != nil {
+		fmt.Print(err)
 	}
 
-	Help := "" +
-		"**__Commands / UFFBot__**" +
-		"```"
-	for _, meme := range UffMemes {
-		Help += meme.Command + "\n"
+	var obj ConfigFile
+	err = json.Unmarshal(data, &obj)
+	if err != nil {
+		fmt.Println("error:", err)
 	}
-	Help += "```"
-
-	for _, meme := range UffMemes {
-		if strings.Title(m.Content) == strings.Title("_help") {
-			s.ChannelMessageSend(m.ChannelID, Help)
-			break
+	if helpEnabled("./config.json") && m.Content == "_help" {
+		Help := "" +
+			"**__Commands / UFFBot__**" +
+			"```"
+		for _, element := range obj.Memes {
+			Help += element.Command + "\n"
 		}
-		if strings.Title(m.Content) == strings.Title(meme.Command) {
-			s.ChannelMessageSend(m.ChannelID, getMemeURL(meme.APIUrl))
+		Help += "```"
+		s.ChannelMessageSend(m.ChannelID, Help)
+		println(m.Author.Username+" issued Command " + m.Content)
+		return
+	}
+	for _, element := range obj.Memes {
+		if element.Command == m.Content {
+			s.ChannelMessageSend(m.ChannelID, getMemeURL(ReadConfig("./config.json", element.Command)))
+			println(m.Author.Username + " issued Command " + m.Content)
+			return
 		}
 	}
 
 }
+
+func ReadConfig(fileURL string, command string) string {
+	data, err := ioutil.ReadFile(fileURL)
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	var obj ConfigFile
+
+	err = json.Unmarshal(data, &obj)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+
+	for _, element := range obj.Memes {
+		if element.Command == command {
+			return element.APIURL
+		}
+	}
+	return ""
+}
+func helpEnabled(fileURL string) bool {
+	data, err := ioutil.ReadFile(fileURL)
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	var obj ConfigFile
+
+	err = json.Unmarshal(data, &obj)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+
+	if obj.HelpEnabled {
+		return true
+	}
+	return false
+}
+
 func getMemeURL(url string) string {
 	spaceClient := http.Client{
 		Timeout: time.Second * 2, // Timeout after 2 seconds
@@ -163,11 +182,11 @@ func getMemeURL(url string) string {
 		log.Fatal(readErr)
 	}
 
-	memeob := response{}
-	jsonErr := json.Unmarshal(body, &memeob)
+	MemeOjb := response{}
+	jsonErr := json.Unmarshal(body, &MemeOjb)
 	if jsonErr != nil {
 		log.Fatal(jsonErr)
 	}
 
-	return memeob.Meme.URL
+	return MemeOjb.Meme.URL
 }
