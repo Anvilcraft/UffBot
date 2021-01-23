@@ -109,7 +109,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 	for _, element := range obj.Memes {
-		if strings.Title(element.Command) == strings.Title(m.Content) {
+		if strings.EqualFold(m.Content, element.Command) {
 			s.ChannelMessageSend(m.ChannelID, getMemeURL(ReadConfig("./config.json", element.Command)))
 			println(m.Author.Username + " issued Command " + m.Content)
 			return
