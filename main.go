@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 
 	"flag"
@@ -104,11 +105,11 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 		Help += "```"
 		s.ChannelMessageSend(m.ChannelID, Help)
-		println(m.Author.Username+" issued Command " + m.Content)
+		println(m.Author.Username + " issued Command " + m.Content)
 		return
 	}
 	for _, element := range obj.Memes {
-		if element.Command == m.Content {
+		if strings.Title(element.Command) == strings.Title(m.Content) {
 			s.ChannelMessageSend(m.ChannelID, getMemeURL(ReadConfig("./config.json", element.Command)))
 			println(m.Author.Username + " issued Command " + m.Content)
 			return
