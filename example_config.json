@@ -140,6 +140,10 @@
     {
       "Command": "uffwe",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=779"
+    },
+    {
+      "Command": "uffjl",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=773"
     }
   ]
 }
