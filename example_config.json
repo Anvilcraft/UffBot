@@ -144,6 +144,18 @@
     {
       "Command": "uffjl",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=773"
+    },
+        {
+      "Command": "uffsb",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=818"
+    },
+        {
+      "Command": "uffmj",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=831"
+    },
+        {
+      "Command": "uffar",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=830"
     }
   ]
 }
