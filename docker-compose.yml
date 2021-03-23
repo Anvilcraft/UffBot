@@ -1,0 +1,5 @@
+#This file is used for testing the server. Use this only if you want to contribute. If you want to try new Features already uploaded check the registry. every branch will be build automatic when new code is pushed.
+version: '2.1'
+services:
+  bot:
+    build: .
