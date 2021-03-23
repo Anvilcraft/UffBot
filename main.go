@@ -23,6 +23,10 @@ type ConfigFile struct {
 		Command string `json:"Command"`
 		APIURL  string `json:"api_url"`
 	} `json:"memes"`
+	BlockedUsers []struct {
+		Username  string `json:"Username"`
+		DiscordID string `json:"DiscordID"`
+	} `json:"blocked_users"`
 }
 type meme struct {
 	URL string `json:"link"`
@@ -96,6 +100,14 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if err != nil {
 		fmt.Println("error:", err)
 	}
+
+	for _, element := range obj.BlockedUsers {
+		if element.DiscordID == m.Author.ID {
+			println(m.Author.Username + " (blocked)")
+			return
+		}
+	}
+
 	if helpEnabled("./config.json") && m.Content == "_help" {
 		Help := "" +
 			"**__Commands / UFFBot__**" +
