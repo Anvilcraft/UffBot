@@ -1,5 +1,6 @@
 {
   "helpEnabled": true,
+  "isUserBot": true,
   "memes": [
     {
       "Command": "uff",
