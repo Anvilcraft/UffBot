@@ -145,17 +145,27 @@
       "Command": "uffjl",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=773"
     },
-        {
+    {
       "Command": "uffsb",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=818"
     },
-        {
+    {
       "Command": "uffmj",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=831"
     },
-        {
+    {
       "Command": "uffar",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=830"
+    }
+  ],
+  "blocked_users": [
+    {
+      "Username": "dev_#7765",
+      "DiscordID": "810490305895596043"
+    },
+    {
+      "Username": "Sleeping2Duo#0981",
+      "DiscordID": "810490305895596043"
     }
   ]
 }
