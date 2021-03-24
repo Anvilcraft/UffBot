@@ -51,7 +51,7 @@ func main() {
 	//print(getMemeURL(ReadConfig("./config.json","uff")))
 
 	// Create a new Discord session using the provided bot token.
-	dg, err := discordgo.New("" + Token)
+	dg, err := discordgo.New(getBotType("./config.json"))
 	if err != nil {
 		fmt.Println("error creating Discord session,", err)
 		return
@@ -202,4 +202,24 @@ func getMemeURL(url string) string {
 	}
 
 	return MemeOjb.Meme.URL
+}
+func getBotType(fileURL string) string {
+	data, err := ioutil.ReadFile(fileURL)
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	var obj ConfigFile
+
+	err = json.Unmarshal(data, &obj)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+
+	if obj.IsUserBot {
+		println("Bot-Type: Userbot")
+		return "" + Token
+	}
+	println("Bot-Type: Standard")
+	return "Bot " + Token
 }
