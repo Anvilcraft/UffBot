@@ -19,6 +19,7 @@ import (
 
 type ConfigFile struct {
 	HelpEnabled bool `json:"helpEnabled"`
+	IsUserBot bool `json:"IsUserBot"`
 	Memes       []struct {
 		Command string `json:"Command"`
 		APIURL  string `json:"api_url"`
