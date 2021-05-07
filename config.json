@@ -157,6 +157,14 @@
     {
       "Command": "uffar",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=830"
+    },
+    {
+      "Command": "biguff",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=771"
+    },
+    {
+      "Command": "longuff",
+      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=771"
     }
   ],
   "blocked_users": [
