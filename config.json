@@ -129,11 +129,7 @@
     {
       "Command": "uffmz",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=646"
-    },
-    {
-      "Command": "uffal",
-      "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=654"
-    },
+    }
     {
       "Command": "alec",
       "api_url": "https://data.tilera.xyz/api/jensmemes/meme?id=650"
